@@ -1,3 +1,7 @@
+#!/bin/bash
+
+execPath=$(readlink -f $(dirname $0))
+
 source ${execPath}/binutils_part1.sh
 source ${execPath}/gcc_part1.sh
 source ${execPath}/API_header.sh

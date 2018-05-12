@@ -1,8 +1,9 @@
 install_expect()
 {
-    version_expect=5.45
-    tar -xf expect-${version_expect}.tar.gz
-    cd expect-${version_expect}
+    name="expect-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
 
     cp -v configure{,.orig}
     sed 's:/usr/local/bin:/bin:' configure.orig > configure
@@ -15,5 +16,5 @@ install_expect()
     make SCRIPTS="" install
 
     cd ..
-    rm -rf expect-${version_expect}
+    rm -rf ${name}${version}
 }

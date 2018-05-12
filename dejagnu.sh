@@ -1,8 +1,9 @@
 install_dejagnu()
 {
-    version_dejagnu=1.6
-    tar -xf dejagnu-${version_dejagnu}.tar.gz
-    cd dejagnu-${version_dejagnu}
+    name="dejagnu-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     ./configure --prefix=/tools
 
@@ -10,5 +11,5 @@ install_dejagnu()
     make install
 
     cd ..
-    rm -rf dejagnu-${version_dejagnu}
+    rm -rf ${name}${version}
 }

@@ -1,8 +1,9 @@
 install_coreutils()
 {
-    version_coreutils=8.27
-    tar -xf coreutils-${version_coreutils}.tar.xz
-    cd coreutils-${version_coreutils}
+    name="coreutils-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
 
     ./configure --prefix=/tools --enable-install-program=hostname
 
@@ -10,5 +11,5 @@ install_coreutils()
     make install
 
     cd ..
-    rm -rf coreutils-${version_coreutils}
+    rm -rf ${name}${version}
 }

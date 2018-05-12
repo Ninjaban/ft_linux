@@ -1,8 +1,9 @@
 install_binutils()
 {
-    version_binutils=2.30
-    tar -xf binutils-${version_binutils}.tar.xz
-    cd binutils-${version_binutils}
+    name="binutils-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     mkdir -v build
     cd build
@@ -23,5 +24,5 @@ install_binutils()
     make install
 
     cd ..
-    rm -rf binutils-${version_binutils}
+    rm -rf ${name}${version}
 }

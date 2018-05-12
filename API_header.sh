@@ -1,8 +1,9 @@
 install_apiheader()
 {
-    version_apiheader=4.12.7
-    tar -xf linux-${version_apiheader}.tar.xz
-    cd linux-${version_apiheader}
+    name="linux-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     make mrproper
 
@@ -10,5 +11,5 @@ install_apiheader()
     cp -rv dest/include/* /tools/include
 
     cd ..
-    rm -rf linux-${version_apiheader}
+    rm -rf ${name}${version}
 }

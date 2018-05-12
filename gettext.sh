@@ -1,8 +1,9 @@
 install_gettext()
 {
-    version_gettext=0.19.8.1
-    tar -xf gettext-${version_gettext}.tar.xz
-    cd gettext-${version_gettext}
+    name="gettext-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
 
     cd gettext-tools
     EMACS="no" ./configure --prefix=/tools --disable-shared
@@ -16,5 +17,5 @@ install_gettext()
     cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin
 
     cd ..
-    rm -rf gettext-${version_gettext}
+    rm -rf ${name}${version}
 }

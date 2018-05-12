@@ -1,7 +1,9 @@
 install_packet()
 {
-    tar -xf $1-$2.tar*
-    cd $1-$2
+    name="$1-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     ./configure --prefix=/tools
 
@@ -9,5 +11,5 @@ install_packet()
     make install
 
     cd ..
-    rm -rf $1-$2
+    rm -rf ${name}${version}
 }

@@ -1,8 +1,9 @@
 install_util-linux()
 {
-    version_util_linux=2.30.1
-    tar -xf util-linux-${version_util_linux}.tar.xz
-    cd util-linux-${version_util_linux}
+    name="util-linux-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     mkdir -v build
     cd       build
@@ -20,5 +21,5 @@ install_util-linux()
     make install
 
     cd ..
-    rm -rf util-linux-${version_util_linux}
+    rm -rf ${name}${version}
 }

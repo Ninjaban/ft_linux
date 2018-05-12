@@ -1,8 +1,9 @@
 install_check()
 {
-    version_check=0.11.0
-    tar -xf check-${version_check}.tar.gz
-    cd check-${version_check}
+    name="check-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     PKG_CONFIG= ./configure --prefix=/tools
 
@@ -10,5 +11,5 @@ install_check()
     make install
 
     cd ..
-    rm -rf check-${version_check}
+    rm -rf ${name}${version}
 }

@@ -1,8 +1,9 @@
 install_make()
 {
-    version_make=4.2.1
-    tar -xf make-${version_make}.tar.bz2
-    cd make-${version_make}
+    name="make-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
 
     ./configure --prefix=/tools --without-guile
 
@@ -10,5 +11,5 @@ install_make()
     make install
 
     cd ..
-    rm -rf make-${version_make}
+    rm -rf ${name}${version}
 }

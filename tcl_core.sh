@@ -1,8 +1,9 @@
 install_tcl-core()
 {
-    version_tcl-core=8.6.7
-    tar -xf tcl-core-${version_tcl-core}.tar.gz
-    cd tcl-core-${version_tcl-core}
+    name="tcl-core-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     cd unix
     ./configure --prefix=/tools
@@ -15,5 +16,5 @@ install_tcl-core()
     ln -sv tclsh8.6 /tools/bin/tclsh
 
     cd ..
-    rm -rf tcl-core-${version_tcl-core}
+    rm -rf ${name}${version}
 }

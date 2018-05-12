@@ -1,8 +1,9 @@
 install_gcc2()
 {
-    version_gcc=7.2.0
-    tar -xf gcc-${version_gcc}.tar.xz
-    cd gcc-${version_gcc}
+    name="gcc-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
 
     cat gcc/limitx.h gcc/glimits.h gcc/limity.h >  `dirname \
         $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
@@ -27,11 +28,11 @@ install_gcc2()
         ;;
     esac
 
-    tar -xf ../mpfr-3.1.5.tar.xz
+    tar -xf ../mpfr-3.1.5.tar*
     mv -v mpfr-3.1.5 mpfr
-    tar -xf ../gmp-6.1.2.tar.xz
+    tar -xf ../gmp-6.1.2.tar*
     mv -v gmp-6.1.2 gmp
-    tar -xf ../mpc-1.0.3.tar.gz
+    tar -xf ../mpc-1.0.3.tar*
     mv -v mpc-1.0.3 mpc
 
     mkdir -v build
@@ -57,5 +58,5 @@ install_gcc2()
     ln -sv gcc /tools/bin/cc
 
     cd ..
-    rm -rf gcc-${version_gcc}
+    rm -rf ${name}${version}
 }

@@ -1,12 +1,13 @@
 install_bzip2()
 {
-    version_bzip2=1.0.6
-    tar -xf bzip2-${version_bzip2}.tar.xz
-    cd bzip2-${version_bzip2}
+    name="bzip2-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     make
     make PREFIX=/tools install
 
     cd ..
-    rm -rf bzip2-${version_bzip2}
+    rm -rf ${name}${version}
 }

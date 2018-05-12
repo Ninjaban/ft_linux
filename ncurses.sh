@@ -1,8 +1,9 @@
 install_ncurses()
 {
-    version_ncurses=6.0
-    tar -xf ncurses-${version_ncurses}.tar.gz
-    cd ncurses-${version_ncurses}
+    name="ncurses-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
 
     sed -i s/mawk// configure
 
@@ -17,5 +18,5 @@ install_ncurses()
     make install
 
     cd ..
-    rm -rf ncurses-${version_ncurses}
+    rm -rf ${name}${version}
 }

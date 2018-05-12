@@ -1,8 +1,9 @@
 install_libstd()
 {
-    version_gcc=7.2.0
-    tar -xf gcc-${version_gcc}.tar.xz
-    cd gcc-${version_gcc}
+    name=""
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     mkdir -v build
     cd       build
@@ -20,5 +21,5 @@ install_libstd()
     make install
 
     cd ..
-    rm -rf gcc-${version_gcc}
+    rm -rf ${name}${version}
 }

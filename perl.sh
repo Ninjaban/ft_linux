@@ -1,8 +1,9 @@
 install_perl()
 {
-    version_perl=5.26.0
-    tar -xf perl-${version_perl}.tar.xz
-    cd perl-${version_perl}
+    name="perl-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     sed -e '9751 a#ifndef PERL_IN_XSUB_RE' \
         -e '9808 a#endif'                  \
@@ -17,5 +18,5 @@ install_perl()
     cp -Rv lib/* /tools/lib/perl5/5.26.0
 
     cd ..
-    rm -rf perl-${version_perl}
+    rm -rf ${name}${version}
 }

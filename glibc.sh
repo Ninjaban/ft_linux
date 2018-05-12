@@ -1,8 +1,9 @@
 install_glibc()
 {
-    version_glibc=2.26
-    tar -xf glibc-${version_glibc}.tar.xz
-    cd glibc-${version_glibc}
+    name="glibc-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
     
     mkdir -v build
     cd       build
@@ -20,5 +21,5 @@ install_glibc()
     make install
 
     cd ..
-    rm -rf glibc-${version_glibc}
+    rm -rf ${name}${version}
 }

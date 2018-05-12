@@ -1,8 +1,9 @@
 install_bash()
 {
-    version_bash=4.4
-    tar -xf bash-${version_bash}.tar.gz
-    cd bash-${version_bash}
+    name="bash-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
 
     ./configure --prefix=/tools --without-bash-malloc
 
@@ -12,5 +13,5 @@ install_bash()
     ln -sv bash /tools/bin/sh
 
     cd ..
-    rm -rf bash-${version_bash}
+    rm -rf ${name}${version}
 }

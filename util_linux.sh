@@ -1,6 +1,6 @@
 install_util-linux()
 {
-    version_util_linux=2.26
+    version_util_linux=2.30.1
     tar -xf util-linux-${version_util_linux}.tar.xz
     cd util-linux-${version_util_linux}
     

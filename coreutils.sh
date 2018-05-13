@@ -2,6 +2,7 @@ install_coreutils()
 {
     name="coreutils-"
     version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    echo "Install ${name}${version}..."
     tar -xf ${name}${version}.tar*
     cd ${name}${version}
 

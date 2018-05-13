@@ -4,7 +4,7 @@ install_tcl-core()
     version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)-src\.tar.*/\1/g")
     echo "Install ${name}${version}..."
     tar -xf ${name}${version}-src.tar*
-    cd ${name}${version}-src
+    cd ${name}${version}
     
     cd unix
     ./configure --prefix=/tools
@@ -17,5 +17,5 @@ install_tcl-core()
     ln -sv tclsh8.6 /tools/bin/tclsh
 
     cd ..
-    rm -rf ${name}${version}-src
+    rm -rf ${name}${version}
 }

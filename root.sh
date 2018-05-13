@@ -1,5 +1,5 @@
 apt-get update
-apt-get install bash binutils bison bzip2 coreutils diffutils findutils gawk gcc g++ glibc grep gzip m4 make perl sed tar texinfo xz-utils
+apt-get install bash binutils bison bzip2 coreutils diffutils findutils gawk gcc g++ grep gzip m4 make perl sed tar texinfo xz-utils
 
 fdisk /dev/sda
 

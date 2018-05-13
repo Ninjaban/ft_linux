@@ -23,6 +23,7 @@ install_binutils()
     esac
 
     make install
+    cd ..
 
     cd ..
     rm -rf ${name}${version}

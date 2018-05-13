@@ -27,6 +27,38 @@ source ${execPath}/util_linux.sh
 DIRLOG='LOG/'
 mkdir ${DIRLOG}
 
+touch ${DIRLOG}binutils.log
+touch ${DIRLOG}gcc_part1.log
+touch ${DIRLOG}API_header.log
+touch ${DIRLOG}glibc.log
+touch ${DIRLOG}libstd.log
+touch ${DIRLOG}binutils_part2.log
+touch ${DIRLOG}gcc_part2.log
+touch ${DIRLOG}tcl_core.log
+touch ${DIRLOG}expect.log
+touch ${DIRLOG}dejagnu.log
+touch ${DIRLOG}check.log
+touch ${DIRLOG}bash.log
+touch ${DIRLOG}bison.log
+touch ${DIRLOG}bzip2.log
+touch ${DIRLOG}coreutils.log
+touch ${DIRLOG}diffutils.log
+touch ${DIRLOG}file.log
+touch ${DIRLOG}findutils.log
+touch ${DIRLOG}gawk.log
+touch ${DIRLOG}gettext.log
+touch ${DIRLOG}grep.log
+touch ${DIRLOG}gzip.log
+touch ${DIRLOG}m4.log
+touch ${DIRLOG}make.log
+touch ${DIRLOG}patch.log
+touch ${DIRLOG}perl.log
+touch ${DIRLOG}sed.log
+touch ${DIRLOG}tar*
+touch ${DIRLOG}texinfo.log
+touch ${DIRLOG}util_linux.log
+touch ${DIRLOG}xz.log
+
 echo "install binutils..." && install_binutils &> ${DIRLOG}binutils.log
 echo "install gcc..." && install_gcc &> ${DIRLOG}gcc_part1.log
 echo "install API header..." && install_apiheader &> ${DIRLOG}API_header.log

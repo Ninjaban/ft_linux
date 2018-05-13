@@ -17,6 +17,6 @@ install_gettext()
 
     cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin
 
-    cd ..
+    cd ../..
     rm -rf ${name}${version}
 }

@@ -17,5 +17,6 @@ install_tcl-core()
     ln -sv tclsh8.6 /tools/bin/tclsh
 
     cd ..
+    cd ..
     rm -rf ${name}${version}
 }

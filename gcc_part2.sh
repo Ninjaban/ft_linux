@@ -59,5 +59,6 @@ install_gcc2()
     ln -sv gcc /tools/bin/cc
 
     cd ..
+    cd ..
     rm -rf ${name}${version}
 }

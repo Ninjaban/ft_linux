@@ -59,7 +59,7 @@ install_gcc()
         --disable-libstdcxx                            \
         --enable-languages=c,c++
 
-    make && make install
+    make && make install && cd ..
 
     cd ..
     rm -rf ${name}${version}

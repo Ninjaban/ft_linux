@@ -19,7 +19,7 @@ install_libstd()
     --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/7.2.0
 
     make
-    make install
+    make install && cd ..
 
     cd ..
     rm -rf ${name}${version}

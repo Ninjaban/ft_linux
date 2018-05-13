@@ -19,7 +19,7 @@ install_glibc()
         libc_cv_c_cleanup=yes
 
     make
-    make install
+    make install && cd ..
 
     cd ..
     rm -rf ${name}${version}

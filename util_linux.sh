@@ -6,21 +6,15 @@ install_util-linux()
     tar -xf ${name}${version}.tar*
     cd ${name}${version}
     
-    mkdir -v build
-    cd       build
-
-    ../configure                                \
-        --prefix=/tools                         \
-        --host=$LFS_TGT                         \
-        --build=$(../scripts/config.guess)      \
-        --enable-kernel=3.2                     \
-        --with-headers=/tools/include           \
-        libc_cv_forced_unwind=yes               \
-        libc_cv_c_cleanup=yes
+    ./configure --prefix=/tools                \
+                --without-python               \
+                --disable-makeinstall-chown    \
+                --without-systemdsystemunitdir \
+                --without-ncurses              \
+                PKG_CONFIG=""
 
     make
     make install && cd ..
 
-    cd ..
     rm -rf ${name}${version}
 }

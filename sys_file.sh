@@ -1,3 +1,35 @@
+install_apiheader()
+{
+    name="linux-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    echo "Install ${name}${version}..."
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
+
+	make mrproper
+
+	make INSTALL_HDR_PATH=dest headers_install
+	find dest/include \( -name .install -o -name ..install.cmd \) -delete
+	cp -rv dest/include/* /usr/include
+
+    cd ..
+    rm -rf ${name}${version}
+}
+
+install_man()
+{
+    name="man-"
+    version=$(find . -name "${name}*" -print0 | sed -r "s/.*${name}(.*)\.tar.*/\1/g")
+    echo "Install ${name}${version}..."
+    tar -xf ${name}${version}.tar*
+    cd ${name}${version}
+
+	make install
+
+    cd ..
+    rm -rf ${name}${version}
+}
+
 sysfile_setup()
 {
     mkdir -pv $LFS/{dev,proc,sys,run}
@@ -93,4 +125,9 @@ EOF
 	chgrp -v utmp /var/log/lastlog
 	chmod -v 664  /var/log/lastlog
 	chmod -v 600  /var/log/btmp
+
+	DIRLOG='LOG2/'
+	mkdir ${DIRLOG}
+
+	echo "install API header..." && install_apiheader &> ${DIRLOG}API_header.log
 }

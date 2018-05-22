@@ -2,6 +2,16 @@ apt-get update
 apt-get install bash binutils bison bzip2 coreutils diffutils findutils gawk gcc g++ grep gzip m4 make perl sed tar texinfo xz-utils
 
 fdisk /dev/sda
+echo "5..."
+sleep 1
+echo "4..."
+sleep 1
+echo "3..."
+sleep 1
+echo "2..."
+sleep 1
+echo "1..."
+sleep 1
 
 mkfs -v -t ext4 /dev/sda3
 export LFS=/mnt/lfs

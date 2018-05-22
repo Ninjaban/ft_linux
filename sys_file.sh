@@ -1260,67 +1260,65 @@ EOF
 
 sysfile_launch()
 {
-	DIRLOG='LOG2/'
-
-	echo "install zlib..." && install_zlib &> ${DIRLOG}zlib.log && read
-	echo "install file..." && install_packet "file-" &> ${DIRLOG}file.log && read
-	echo "install readline..." && install_readline &> ${DIRLOG}readline.log && read
-	echo "install m4..." && install_packet "m4-" &> ${DIRLOG}m4.log && read
-	echo "install bc..." && install_bc &> ${DIRLOG}bc.log && read
-	echo "install binutils..." && install_binutils &> ${DIRLOG}binutils.log && read
-	echo "install gmp..." && install_gmp &> ${DIRLOG}gmp.log && read
-	echo "install mpfr..." && install_mpfr &> ${DIRLOG}mpfr.log && read
-	echo "install mpc..." && install_mpc &> ${DIRLOG}mpc.log && read
-	echo "install gcc..." && install_gcc &> ${DIRLOG}gcc.log && read
-	echo "install bzip2..." && install_bzip2 &> ${DIRLOG}bzip2.log && read
-	echo "install pkg-config..." && install_pkgconfig &> ${DIRLOG}pkgconfig.log && read
-	echo "install ncurses..." && install_ncurses &> ${DIRLOG}ncurses.log && read
-	echo "install attr..." && install_attr &> ${DIRLOG}attr.log && read
-	echo "install acl..." && install_acl &> ${DIRLOG}acl.log && read
-	echo "install libcap..." && install_libcap &> ${DIRLOG}libcap.log && read
-	echo "install sed..." && install_sed &> ${DIRLOG}sed.log && read
-	echo "install shadow..." && install_shadow &> ${DIRLOG}shadow.log && read
-	echo "install psmisc..." && install_psmisc &> ${DIRLOG}psmisc.log && read
-	echo "install iana-etc..." && install_ianaetc &> ${DIRLOG}iana-etc.log && read
-	echo "install bison..." && install_bison &> ${DIRLOG}bison.log && read
-	echo "install flex..." && install_flex &> ${DIRLOG}flex.log && read
-	echo "install grep..." && install_grep &> ${DIRLOG}grep.log && read
-	echo "install bash..." && install_bash &> ${DIRLOG}bash.log && read
-	echo "install libtool..." && install_packet "libtool-" &> ${DIRLOG}libtool.log && read
-	echo "install gdbm..." && install_gdbm &> ${DIRLOG}gdbm.log && read
-	echo "install gperf..." && install_gperf &> ${DIRLOG}gperf.log && read
-	echo "install expat..." && install_expat &> ${DIRLOG}expat.log && read
-	echo "install inetutils..." && install_inetutils &> ${DIRLOG}inetutils.log && read
-	echo "install perl..." && install_perl &> ${DIRLOG}perl.log && read
-	echo "install XML-Parser..." && install_xmlparser &> ${DIRLOG}xmlparser.log && read
-	echo "install intltool..." && install_intltool &> ${DIRLOG}intltool.log && read
-	echo "install autoconf..." && install_packet "autoconf-" &> ${DIRLOG}autoconf.log && read
-	echo "install automake..." && install_automake &> ${DIRLOG}automake.log && read
-	echo "install xz..." && install_xz &> ${DIRLOG}xz.log && read
-	echo "install kmod..." && install_kmod &> ${DIRLOG}kmod.log && read
-	echo "install gettext..." && install_gettext &> ${DIRLOG}gettext.log && read
-	echo "install procpsng..." && install_procpsng &> ${DIRLOG}procpsng.log && read
-	echo "install e2fsprogs..." && install_e2fsprogs &> ${DIRLOG}e2fsprogs.log && read
-	echo "install coreutils..." && install_coreutils &> ${DIRLOG}coreutils.log && read
-	echo "install diffutils..." && install_packet "diffutils-" &> ${DIRLOG}diffutils.log && read
-	echo "install gawk..." && install_packet "gawk-" &> ${DIRLOG}gawk.log && read
-	echo "install findutils..." && install_findutils &> ${DIRLOG}findutils.log && read
-	echo "install groff..." && install_groff &> ${DIRLOG}groff.log && read
-	echo "install grub..." && install_grub &> ${DIRLOG}grub.log && read
-	echo "install less..." && install_less &> ${DIRLOG}less.log && read
-	echo "install gzip..." && install_gzip &> ${DIRLOG}gzip.log && read
-	echo "install iproute2..." && install_iproute2 &> ${DIRLOG}iproute2.log && read
-	echo "install kdb..." && install_kdb &> ${DIRLOG}kdb.log && read
-	echo "install libpipeline..." && install_libpipeline &> ${DIRLOG}libpipeline.log && read
-	echo "install make..." && install_make &> ${DIRLOG}make.log && read
-	echo "install patch..." && install_packet "patch-" &> ${DIRLOG}patch.log && read
-	echo "install sysklogd..." && install_sysklogd &> ${DIRLOG}sysklogd.log && read
-	echo "install sysvinit..." && install_sysvinit &> ${DIRLOG}sysvinit.log && read
-	echo "install eudev..." && install_eudev &> ${DIRLOG}eudev.log && read
-	echo "install utillinux..." && install_utillinux &> ${DIRLOG}utillinux.log && read
-	echo "install mandb..." && install_mandb &> ${DIRLOG}mandb.log && read
-	echo "install tar..." && install_tar &> ${DIRLOG}tar.log && read
-	echo "install vim..." && install_vim &> ${DIRLOG}vim.log && read
+	echo "install zlib..." && install_zlib && read
+	echo "install file..." && install_packet "file-" && read
+	echo "install readline..." && install_readline && read
+	echo "install m4..." && install_packet "m4-" && read
+	echo "install bc..." && install_bc && read
+	echo "install binutils..." && install_binutils && read
+	echo "install gmp..." && install_gmp  && read
+	echo "install mpfr..." && install_mpfr && read
+	echo "install mpc..." && install_mpc && read
+	echo "install gcc..." && install_gcc && read
+	echo "install bzip2..." && install_bzip2 && read
+	echo "install pkg-config..." && install_pkgconfig && read
+	echo "install ncurses..." && install_ncurses && read
+	echo "install attr..." && install_attr && read
+	echo "install acl..." && install_acl && read
+	echo "install libcap..." && install_libcap && read
+	echo "install sed..." && install_sed && read
+	echo "install shadow..." && install_shadow && read
+	echo "install psmisc..." && install_psmisc && read
+	echo "install iana-etc..." && install_ianaetc && read
+	echo "install bison..." && install_bison && read
+	echo "install flex..." && install_flex && read
+	echo "install grep..." && install_grep && read
+	echo "install bash..." && install_bash && read
+	echo "install libtool..." && install_packet "libtool-" && read
+	echo "install gdbm..." && install_gdbm && read
+	echo "install gperf..." && install_gperf && read
+	echo "install expat..." && install_expat && read
+	echo "install inetutils..." && install_inetutils && read
+	echo "install perl..." && install_perl && read
+	echo "install XML-Parser..." && install_xmlparser && read
+	echo "install intltool..." && install_intltool && read
+	echo "install autoconf..." && install_packet "autoconf-" && read
+	echo "install automake..." && install_automake && read
+	echo "install xz..." && install_xz && read
+	echo "install kmod..." && install_kmod && read
+	echo "install gettext..." && install_gettext && read
+	echo "install procpsng..." && install_procpsng && read
+	echo "install e2fsprogs..." && install_e2fsprogs && read
+	echo "install coreutils..." && install_coreutils && read
+	echo "install diffutils..." && install_packet "diffutils-" && read
+	echo "install gawk..." && install_packet "gawk-" && read
+	echo "install findutils..." && install_findutils && read
+	echo "install groff..." && install_groff && read
+	echo "install grub..." && install_grub && read
+	echo "install less..." && install_less && read
+	echo "install gzip..." && install_gzip && read
+	echo "install iproute2..." && install_iproute2 && read
+	echo "install kdb..." && install_kdb && read
+	echo "install libpipeline..." && install_libpipeline && read
+	echo "install make..." && install_make && read
+	echo "install patch..." && install_packet "patch-" && read
+	echo "install sysklogd..." && install_sysklogd && read
+	echo "install sysvinit..." && install_sysvinit && read
+	echo "install eudev..." && install_eudev && read
+	echo "install utillinux..." && install_utillinux && read
+	echo "install mandb..." && install_mandb && read
+	echo "install tar..." && install_tar && read
+	echo "install vim..." && install_vim && read
 }
 
 sysfile_setup()
@@ -1330,12 +1328,9 @@ sysfile_setup()
 	chmod -v 664  /var/log/lastlog
 	chmod -v 600  /var/log/btmp
 
-	DIRLOG='LOG2/'
-	mkdir ${DIRLOG}
-
-	echo "install API header..." && install_apiheader &> ${DIRLOG}API_header.log && read
-	echo "install man-pages..." && install_man_pages &> ${DIRLOG}man-pages.log && read
-	echo "install glibc..." && install_glibc &> ${DIRLOG}glibc.log && read
+	echo "install API header..." && install_apiheader && read
+	echo "install man-pages..." && install_man_pages && read
+	echo "install glibc..." && install_glibc && read
 
 	mv -v /tools/bin/{ld,ld-old}
 	mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}
